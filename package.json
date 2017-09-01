@@ -1,0 +1,8 @@
+{
+    "name": "Oracle_Cloud_Setup_Request",
+    "version": "1.0.0",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "xbastida",
+    "contributors": [],
+    "dependencies": {}
+}
