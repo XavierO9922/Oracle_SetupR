@@ -4,4 +4,25 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<h1>setupRequest</h1>
+<h1>Setup Request</h1>
+<h2>Icons</h2>
+<div class="oj-flex">
+    <div class="oj-flex-item oj-flex oj-panel oj-margin">
+        <div id="tree"  style="width: 170px;height: auto;" 
+                  data-bind="ojComponent:
+                  {
+                    component: 'ojTree',
+                    initExpanded: ['#references', '#sups'],
+                    data: {data: getJson},
+                    dnd: {reorder: 'enable'}
+                  }" ></div>
+
+    <p/>
+    </div>    
+    <div class="oj-flex-item oj-flex oj-panel oj-margin">
+        
+    </div>    
+    <div class="oj-flex-item oj-flex oj-panel oj-margin">
+        
+    </div>    
+</div>
