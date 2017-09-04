@@ -9,5 +9,11 @@
 .demo-mypanel {
   width:  200px;
   height: 125px;
-  text-align:center;
+  text-align: center;
+  border-color: #0572ce;
+  font-weight: bold;
+}
+
+.demo-mypanel h4 {
+  font-weight: bold;
 }

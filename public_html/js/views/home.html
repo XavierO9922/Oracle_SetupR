@@ -8,24 +8,42 @@ and open the template in the editor.
   
   <div class="oj-flex oj-padding-vertical ">
     <div class="oj-panel oj-margin demo-mypanel">
-        3
+        <p style="color: orangered">3</p>
       <h4>Awaiting Approvals</h4>
     </div>
     
     <div class="oj-panel oj-margin demo-mypanel">
-        3
+        <p style="color: darkblue">3</p>
       <h4>Approved Requests</h4>
     </div>
 
      <div class="oj-panel oj-margin demo-mypanel">
-         1
+         <p style="color: orange">1</p>
        <h4>Scheduled</h4>
      </div>
        
      <div class="oj-panel oj-margin demo-mypanel">
-         10
+         <p style="color: green">10</p>
        <h4>Completed</h4>
      </div>
        
   </div>
+    
+    <table id="table" summary="SCM Requests List" aria-label="SCM Requests List"
+       data-bind="ojComponent: {component: 'ojTable', 
+                                data: datasource,
+                                display: 'grid',
+                                columnsDefault: {sortable: 'none'}, 
+                                columns: [{headerText: 'SCM Module', 
+                                           field: 'SCMModule'},
+                                          {headerText: 'Request Type', 
+                                           field: 'RequestType'},
+                                          {headerText: 'Request Details', 
+                                           field: 'RequestDetails'},
+                                          {headerText: 'Requestor', 
+                                           field: 'Requestor'},
+                                          {headerText: 'Status',
+                                           field: 'Status'}],
+                                rootAttributes: {'style':'width: 1000px; height: 300px;'}}">
+    </table>
 </div>
