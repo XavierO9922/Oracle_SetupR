@@ -31,7 +31,7 @@ and open the template in the editor.
     
     <table id="table" summary="SCM Requests List" aria-label="SCM Requests List"
        data-bind="ojComponent: {component: 'ojTable', 
-                                data: datasource,
+                                data: pagingDatasource,
                                 display: 'grid',
                                 columnsDefault: {sortable: 'none'}, 
                                 columns: [{headerText: 'SCM Module', 
@@ -44,6 +44,8 @@ and open the template in the editor.
                                            field: 'Requestor'},
                                           {headerText: 'Status',
                                            field: 'Status'}],
-                                rootAttributes: {'style':'width: 1000px; height: 300px;'}}">
+                                rootAttributes: {'style':'width: 100%'}}">
     </table>
+    <div id="paging" data-bind="ojComponent: {component: 'ojPagingControl', data: pagingDatasource, pageSize: 15}">
+    </div>
 </div>
