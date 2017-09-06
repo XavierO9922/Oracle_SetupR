@@ -6,23 +6,91 @@ and open the template in the editor.
 
 <h1>Setup Request</h1>
 <h2>Icons</h2>
+<div id="results"></div>
 <div class="oj-flex">
     <div class="oj-flex-item oj-flex oj-panel oj-margin">
-        <div id="tree"  style="width: 170px;height: auto;" 
-                  data-bind="ojComponent:
-                  {
-                    component: 'ojTree',
-                    initExpanded: ['#references', '#sups'],
-                    data: {data: getJson},
-                    dnd: {reorder: 'enable'}
-                  }" ></div>
+        <div id="tree" style="width: 180px;height: auto;"
+                       data-bind="ojComponent:
+                       {
+                         component: 'ojTree',
+                         selectionMode: 'multiple',
+                         data:{data: getJson}
+                       }">
+        </div>
 
     <p/>
-    </div>    
+    </div>
     <div class="oj-flex-item oj-flex oj-panel oj-margin">
-        
-    </div>    
-    <div class="oj-flex-item oj-flex oj-panel oj-margin">
-        
-    </div>    
+        <div class="oj-form-layout">
+            <div class="oj-form oj-sm-odd-cols-12 oj-lg-odd-cols-4 oj-md-labels-inline oj-form-cols oj-form-cols-max2">
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <label for="input">Display Name</label>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="input" data-bind="ojComponent: {component: 'ojInputText', value:'text', required: true}">
+                    </div>
+                </div>
+                <div class="oj-flex"> 
+                    <div class="oj-flex-item">
+                      <label for="input2">Class</label>
+                    </div>
+                    <div class="oj-flex-item">
+                      <input id="input2" data-bind="ojComponent: {component: 'ojInputText', value:'text', required: true}">
+                    </div>
+                </div>
+                <div class="oj-flex"> 
+                    <div class="oj-flex-item">
+                      <label for="input3">Attribute Group</label>
+                    </div>
+                    <div class="oj-flex-item">
+                      <input id="input3" data-bind="ojComponent: {component: 'ojInputText', value:'text', required: false}">
+                    </div>
+                </div>
+                <div class="oj-flex"> 
+                    <div class="oj-flex-item">
+                      <label for="input4">Pages</label>
+                    </div>
+                    <div class="oj-flex-item">
+                      <input id="input4" data-bind="ojComponent: {component: 'ojInputText', value:'text', required: false}">
+                    </div>
+                </div>
+                <div class="oj-flex"> 
+                    <div class="oj-flex-item">
+                      <label for="input5">Note</label>
+                    </div>
+                    <div class="oj-flex-item">
+                      <input id="input5" data-bind="ojComponent: {component: 'ojInputText', value:'text', required: false}">
+                    </div>
+                </div>
+                <div class="oj-flex"> 
+                    <div class="oj-flex-item">
+                      <label for="approver">Approver</label>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="approver" list="browsers" data-bind="ojComponent: {component: 'ojCombobox', value: val, rootAttributes: {style:'max-width:20em'}}"/>
+                        <datalist id="browsers">
+                            <option value="Jesus Flores">Jesus Flores</option>
+                            <option value="Kishore Kondragunta">Kishore Kondragunta</option>
+                            <option value="Sekhar Palaniswamy">Sekhar Palaniswamy</option>
+                        </datalist>
+                    </div>
+                    <div>
+                    <br/>
+                    <label for="curr-value" class="oj-label">Approver: </label>
+                    <span id="curr-value" data-bind="text: ko.toJSON(val)"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="oj-flex"> 
+                <div class="oj-flex-item">
+                    <div id="stoogeSet" data-bind="ojComponent: {component: 'ojButtonset'}">
+                        <button id="validate"   data-bind="click: buttonClick">Validate</button>
+                        <button id="submit" data-bind="click: buttonClick">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
