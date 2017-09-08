@@ -29,12 +29,15 @@ and open the template in the editor.
        
   </div>
     
-    <table id="table" summary="SCM Requests List" aria-label="SCM Requests List"
-       data-bind="ojComponent: {component: 'ojTable', 
+    <table id="SCMTable" summary="SCM Requests List" aria-label="SCM Requests List"
+       data-bind="ojComponent: {component: 'ojTable',
+                                beforeCurrentRow: currentRowListener,
                                 data: pagingDatasource,
                                 display: 'grid',
                                 columnsDefault: {sortable: 'none'}, 
-                                columns: [{headerText: 'SCM Module', 
+                                columns: [{headerText: 'Request ID', 
+                                           field: 'RequestID'},
+                                          {headerText: 'SCM Module', 
                                            field: 'SCMModule'},
                                           {headerText: 'Request Type', 
                                            field: 'RequestType'},
@@ -46,6 +49,27 @@ and open the template in the editor.
                                            field: 'Status'}],
                                 rootAttributes: {'style':'width: 100%'}}">
     </table>
+    <br/><br/>
+    <span id="selectedDepartmentId"></span>
+    <span id="selectedDepartmentName"></span>
+    
     <div id="paging" data-bind="ojComponent: {component: 'ojPagingControl', data: pagingDatasource, pageSize: 15}">
     </div>
+    
+    <div id="dialogWrapper">
+        <div style="display:none" id="modalDialog1" title="Modal Dialog" 
+             data-bind="ojComponent:{component: 'ojDialog', initialVisibility: 'hide'}">
+           <div class="oj-dialog-body">
+             The dialog window can be moved, resized and closed with the 'x' icon.
+             Arbitrary content can be added to the the oj-dialog-body and oj-dialog-footer sections.
+           </div>
+           <div class="oj-dialog-footer">
+              <button id="okButton" data-bind="click: handleOKClose, ojComponent: {component: 'ojButton', label: 'OK'}"> </button>
+            </div>
+        </div>
+
+      </div>
+    
+    
+    
 </div>
