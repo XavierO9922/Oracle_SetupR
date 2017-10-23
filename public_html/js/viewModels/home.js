@@ -42,24 +42,31 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'promise',
         {RequestID: 22, SCMModule: 'Costing', RequestType: 'EFF Attribute setup', RequestDetails: 'Setup EFF on Item Class', Requestor: 'xxx@oracle.com', Status: 'Scheduled'}];
     
         self.pagingDatasource = new oj.PagingTableDataSource(new oj.ArrayTableDataSource(SCMModulesArray, {idAttribute: 'RequestID'}));
-    
-        //var obj = {};
         
-        self.currentRowListener = function (event, ui) {
-            console.log("hi");
-                var newCurrentRow = ui.currentRow;
-                self.pagingDatasource.at(newCurrentRow['rowIndex']).
-                        then(function (rowObj) {
-                            var obj = rowObj['data'];
-                            console.log(obj);
-                            $('#selectedDepartmentId').text(obj.SCMModule);
-                            $('#selectedDepartmentName').text(obj.RequestType);
-                            $("#modalDialog1").ojDialog("open");
-                        });
-         };
+        self.currentRowTableSelection  = ko.observable();
+        //var obj = {};
+       
+        self.valueChangeListener  = function (event, ui) {
+            if (ui.option == 'selection') {
+                if (self.currentRowTableSelection()) {
+                    var newCurrentRow = ui.value[0].startIndex;
+                    self.pagingDatasource.at(newCurrentRow['row']).
+                    then(function (rowObj) {
+                        var obj = rowObj['data'];
+                        console.log(obj);
+                        $("#modalDialog1").ojDialog("open");
+                    });
+                }
+            }
+            self.currentRowTableSelection('');
+             
+                
+        };
          
-         self.handleOKClose = function() {
-            $("#modalDialog1").ojDialog("close"); };
+        self.handleOKClose = function() {
+            $("#modalDialog1").ojDialog("close");
+        };
+ 
     }
     
     return homeContentViewModel;

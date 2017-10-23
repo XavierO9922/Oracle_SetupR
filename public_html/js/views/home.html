@@ -31,7 +31,9 @@ and open the template in the editor.
     
     <table id="SCMTable" summary="SCM Requests List" aria-label="SCM Requests List"
        data-bind="ojComponent: {component: 'ojTable',
-                                beforeCurrentRow: currentRowListener,
+                                selectionMode: {row: 'single', column: 'none'},
+                                optionChange: valueChangeListener,
+                                selection: currentRowTableSelection,
                                 data: pagingDatasource,
                                 display: 'grid',
                                 columnsDefault: {sortable: 'none'}, 
@@ -68,8 +70,6 @@ and open the template in the editor.
             </div>
         </div>
 
-      </div>
-    
-    
-    
+    </div>
+  
 </div>
